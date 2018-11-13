@@ -1,0 +1,20 @@
+{
+  "name": "malaria",
+  "version": "1.0.0",
+  "description": "A useful bot that can do almost anything that you want it to do!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Frocalo",
+  "license": "ISC",
+  "dependencies": {
+    "dblapi.js": "^2.3.0",
+    "discord.js": "^11.4.2",
+    "fortnite": "^4.1.1",
+    "ms": "^2.1.1",
+    "superagent": "^4.0.0-beta.5"
+  },
+  "devDependencies": {},
+  "keywords": []
+}
