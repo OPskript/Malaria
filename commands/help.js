@@ -81,7 +81,9 @@ module.exports.run = async (bot, message, args) => {
         .addField("/pay [member] [coins]", "Donates money to a member on the server");
 
         return message.channel.send(eEmbed);
-      };
+      }else {
+        return message.channel.send("That is not a category!").then(msg => {msg.delete(5000)});
+      }
 }
 
 module.exports.help = {
