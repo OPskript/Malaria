@@ -61,6 +61,10 @@ bot.on("ready", async () => {
 //  bot.user.setActivity("YouTube", {type: "WATCHING"});
 
   bot.user.setActivity(`Currently on ${bot.guilds.size} servers!`);
+  
+  bot.guilds.forEach((guild) => {
+      console.log(guild.name)
+  })
 });
 
 bot.on("message", async message => {
