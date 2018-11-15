@@ -3,6 +3,8 @@ let coins = require("../coins.json");
 
 module.exports.run = async (bot, message, args) => {
     
+    await message.delete();
+    
     if(!coins[message.author.id]){
         coins[message.author.id] = {
             coins: 0
@@ -14,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
     let coinEmbed = new Discord.RichEmbed()
     .setAuthor(message.author.username)
     .setColor("#00ff00")
-    .addField("💸", userCoins);
+    .addField("💸", `Coins: ${userCoins}`);
     
     message.channel.send(coinEmbed).then(msg => {msg.delete(5000)}); 
 }

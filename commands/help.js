@@ -17,8 +17,8 @@ module.exports.run = async (bot, message, args) => {
       .addBlankField()
       .addField("Categories:", "general, moderator, fun, economy");
 
-      message.channel.send(generalEmbed);
-  
+      return message.channel.send(generalEmbed);
+
     }
   
   
