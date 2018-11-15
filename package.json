@@ -4,8 +4,10 @@
   "description": "A useful bot that can do almost anything that you want it to do!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
+  "engines": { "node": "8.12.0" },
   "author": "Frocalo",
   "license": "ISC",
   "dependencies": {
@@ -13,7 +15,8 @@
     "discord.js": "^11.4.2",
     "fortnite": "^4.1.1",
     "ms": "^2.1.1",
-    "superagent": "^4.0.0-beta.5"
+    "superagent": "^4.0.0-beta.5",
+    "express": "^4.16.4"
   },
   "devDependencies": {},
   "keywords": []
