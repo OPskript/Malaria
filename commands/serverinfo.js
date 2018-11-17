@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const moment = require("moment");
 
 module.exports.run = async (bot, message, args) => {
     let sicon = message.guild.iconURL;
@@ -7,8 +8,8 @@ module.exports.run = async (bot, message, args) => {
     .setColor("#15f153")
     .setThumbnail(sicon)
     .addField("Server Name", message.guild.name, true)
-    .addField("Created On", message.guild.createdAt, true)
-    .addField("You Joined", message.member.joinedAt, true)
+    .addField("Created On", moment(message.guild.createdAt).format("LL"), true)
+    .addField("You Joined", moment(message.member.joinedAt).format("LL"), true)
     .addField("Total Humans", message.guild.members.filter(f => f.user.bot === false).size, true)
     .addField("Total Bots", message.guild.members.filter(f => f.user.bot === true).size, true)
     .addField("Roles", message.guild.roles.size, true);

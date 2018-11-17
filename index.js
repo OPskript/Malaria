@@ -15,7 +15,7 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
 const DBL = require("dblapi.js");
-const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ3ODc4MTI3MjMyODUwMzMxOCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTQxNDc5MDE5fQ.Brjzrld7da7B4L5HRWUUuT_9DxKW94tq79PyGx07jb8', bot);
+const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ3ODc4MTI3MjMyODUwMzMxOCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTQyMzU0MzI5fQ.TDuYR1f9QW1h6v6aAtn6kr5Iz5EeliWJR-kXIrKzpwE', bot);
 
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
