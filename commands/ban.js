@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const errors = require("../utilities/errors.js");
+const moment = require("moment");
 
 module.exports.run = async (bot, message, args) => {
     await message.delete();
@@ -15,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Banned User", `${bUser} with ID ${bUser.id}`)
     .addField("Banned By", `<@${message.author.id}> with ID ${message.author.id}`)
     .addField("Banned In", message.channel)
-    .addField("Time", message.createdAt)
+    .addField("Time", moment(message.createdAt).format("LL"))
     .addField("Reason", bReason);
 
     let logschannel = message.guild.channels.find(c => c.name === "logs");
