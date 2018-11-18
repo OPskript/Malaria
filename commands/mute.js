@@ -2,12 +2,17 @@ const Discord = require("discord.js");
 const ms = require("ms");
 
 module.exports.run = async (bot, message, args) => {
-    
+  
     await message.delete();
     
+    if(!message.author.hasPermission("MANAGE_MESSAGES")) return message.reply("You do not have permission to mute them!")
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!tomute) return message.reply("Couldn't find user.");
-    if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("Can't mute them!");
+    if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("Can't mute them!").then(msg => {msg.delete(5000)});
+    
+    if(tomute.id === message.author.id) return message.channel.send("You cannot mute yourself!");
+    if(tomute.highestRole.position >= message.member.highestrole.position) return message.channel.send("You cannot mute a member who is higher or has the same role as you.");
+    
     let muterole = message.guild.roles.find(r => r.name === "muted");
     // start of create role
     if(!muterole){
@@ -28,21 +33,15 @@ module.exports.run = async (bot, message, args) => {
         }
     }
     // end of create role
-    let mutetime = args[1];
-    if(!mutetime) return message.reply("You didn't specify a time!");
+
+    if(tomute.roles.has(muterole.id)) return message.channel.send("This user is already muted!");
     
     await(tomute.addRole(muterole.id));
-    message.reply(`<@${tomute.id}> has been muted for ${ms(ms(mutetime))}`);
-    
-    setTimeout(function(){
-        tomute.removeRole(muterole.id);
-        message.channel.send(`<@${tomute.id}> has been unmuted!`);
-    }, ms(mutetime));
-    
-    //end of module
+    message.channel.send(`<@${tomute.id}> has been muted!`).then(msg => {msg.delete(5000)});
+  
 }
 
 module.exports.help = {
-    name: "tempmute",
-    aliases: []
+  name: "mute",
+  aliases: []
 }

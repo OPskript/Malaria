@@ -45,6 +45,8 @@ module.exports.run = async (bot, message, args) => {
       .setColor("#00ff00")
       .setThumbnail(botIcon)
       .addField("/ban [member] [reason]", "Bans a member from the server. Needs a channel called logs")
+      .addField("/mute [member]", "Mutes a member in the server")
+      .addField("/unmute [member]", "Unmutes a member in the server")
       .addField("/tempmute [member] [time]", "Temporarly mute a member in the server")
       .addField("/addrole [member] [role]", "Gives a member a role. The bot has to be above the role it is going to give.")
       .addField("/removerole [member] [role]", "Removes a role from a member. The bot has to be above the role it is going to remove.")
@@ -66,6 +68,8 @@ module.exports.run = async (bot, message, args) => {
         .addField("/8ball [question]", "Asks the bot a question. Will give a random answer.")
         .addField("/cat", "Gives you a cat image")
         .addField("/dog", "Gives you a dog image")
+        .addField("/meme", "Gives you a meme")
+        .addField("/ping", "Replies with **PONG!** and gives you your ping.")
         .addField("/fortnite [username] [mode] [platform]", "Fortnite tracker. This displays a Fortnite player's stats.")
         .addField("/rip", "RIP");
 
